@@ -55,9 +55,9 @@ body{
 
 .content {
     position: relative;
-    margin-left: 250px; /* Sesuai dengan lebar sidebar */
+    /* margin-left: 250px; Sesuai dengan lebar sidebar */
     padding: 20px;
-    width: calc(100% - 250px); /* Menyesuaikan sisa lebar layar */
+    /* width: calc(100% - 250px); Menyesuaikan sisa lebar layar */
 }
 
 .li-logout{

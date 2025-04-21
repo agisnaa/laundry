@@ -10,16 +10,18 @@ class AdminController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function home(){
+    public function home()
+    {
 
 
         return view('home');
     }
 
-    public function searchNoHp(Request $request){
+    public function searchNoHp(Request $request)
+    {
         $nomorHp = $request->noHp;
-        $datas = DataPesanan::where('noHp','like','%'.$nomorHp.'%')->get();
-        return view('home',compact('datas'));
+        $datas = DataPesanan::where('noHp', 'like', '%' . $nomorHp . '%')->get();
+        return view('home', compact('datas'));
     }
 
     public function index()
@@ -55,15 +57,12 @@ class AdminController extends Controller
         ]);
 
         return redirect()->route('dashboard.admin');
-
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-    }
+    public function show(string $id) {}
 
     /**
      * Show the form for editing the specified resource.
@@ -73,7 +72,6 @@ class AdminController extends Controller
         $data = DataPesanan::find($id);
 
         return view('edit', compact('data'));
-        
     }
 
     /**
@@ -109,15 +107,17 @@ class AdminController extends Controller
         return redirect()->route('dashboard.admin');
     }
 
-    public function owner(){
+    public function owner()
+    {
         $datas = DataPesanan::orderBy('created_at', 'desc')->get();
-        return view('owner',compact('datas'));
+        return view('owner', compact('datas'));
     }
 
-    public function searchDate(Request $request){
+    public function searchDate(Request $request)
+    {
         $date = $request->date;
-        $resultDate = DataPesanan::where('created_at','like','%'.$date.'%')->get();
-        
-        return view('owner',compact('resultDate'));
+        $resultDate = DataPesanan::where('created_at', 'like', '%' . $date . '%')->get();
+
+        return view('owner', compact('resultDate'));
     }
 }
